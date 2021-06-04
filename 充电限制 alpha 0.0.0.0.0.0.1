@@ -1,0 +1,9 @@
+tell application "Terminal"
+	set currentTab to do script ("cd smcFanControl/smc-command")
+	delay 1
+	do script ("sudo ./smc -k BCLM -w 50") in currentTab    --这里的50 是80%里面80 的16进制表示，比如要更改回100%的话就是64--
+	delay 1
+	do script ("电脑开机密码") in currentTab --Mac Password  把里面的电脑开机密码换成你的电脑开机密码即可--
+	do script ("./smc -k BCLM -r") in currentTab --电池充电截止百分比，最终显示的是多少就是实际更改后的值--
+	
+end tell
